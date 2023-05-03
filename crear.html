@@ -58,24 +58,41 @@
             <form>
                 <div class="form-group">
                     <label for="correo">Nombre</label>
-                    <input id="correo" name="correo"
-                        class="form-control" type="email"
-                        placeholder="Correo electrónico">
+                    <input id="correo" name="nombre"
+                        class="form-control" type="nombre"
+                        placeholder="Correo electrónico"
+                        >
                 </div>
+                <div CLASS="form-group">
+                    <label for="correo">Rut</label>
+                    <input
+                    name="rut"
+                    id="rut"
+                    type="text"
+                    class="form-control"
+                    placeholder="Ingrese un RUT"
+                    onkeypress="return isNumber(event)"
+                    oninput="checkRut(this)"
+                    />
+                </div>
+                
                 <div class="form-group">
                     <label for="correo">Correo</label>
                     <input id="correo" name="correo"
                         class="form-control" type="email"
-                        placeholder="Correo electrónico">
+                        placeholder="Correo electrónico"
+                        oninput="validarEmail(this)"
+                        required>
                 </div>
                 <div class="form-group">
                     <label for="palabraSecreta">Contraseña</label>
                     <input id="palabraSecreta" name="palabraSecreta"
                         class="form-control" type="password"
-                        placeholder="Contraseña">
+                        placeholder="Contraseña"
+                        required>
                 </div>
                 <button type="submit" class="btn btn-primary mb-2">
-                    Entrar
+                    ingresar
                 </button>
             </form>
         </div>
@@ -130,5 +147,6 @@
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>  
+        <script src="./validador.js"></script>
     </body>
 </html>
