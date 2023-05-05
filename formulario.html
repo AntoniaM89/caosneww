@@ -45,31 +45,51 @@
             </form>
         </div>
     </nav>
-    
-    <div class="formulario">
-        <div class="form-floating mb-3">
-            <label for="floatingInput">Nombre</label>
-            <input type="user" class="form-control" id="floatingInput" placeholder="Nombre">
-        </div>
-        <div class="form-floating">
-            <label for="floatingInput">Email</label>
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Categoria</label> 
-        </div>
-        <select class="form-select" aria-label="Default select example">
-            <option selected>Selecciona categoria</option>
-            <option value="1">Chismesito</option>
-            <option value="2">Deportes</option>
-            <option value="3">Politica</option>
-            <option value="4">Fake news</option>
-            <option value="5"></option>
-        </select>
-        <div class="form-floating">
-            <label for="floatingTextarea2">Cuente su chisme</label>
-            <textarea class="form-control" placeholder="chisme aqui" id="floatingTextarea2" style="height: 100px"></textarea>
-            
+ 
+<main role="main" class="container my-auto">
+    <div class="row">
+        <div id="login" class="col-lg-4 offset-lg-4 col-md-6 offset-md-3
+            col-12">
+            <h2 class="text-center">Cuentenos su chisme o sus penurias</h2>
+            <form action="./principal.html" method="GET">
+                <div class="form-group">
+                    <label for="correo">Nombre</label>
+                    <input id="correo" name="nombre"
+                        class="form-control" type="nombre"
+                        placeholder="Nombre"
+                        >
+                </div>
+
+                <div class="form-group">
+                    <label for="correo">Correo</label>
+                    <input id="correo" name="correo"
+                        class="form-control" type="email"
+                        placeholder="Correo electrónico"
+                        oninput="validarEmail(this)"
+                        requiered>
+                </div>
+                <div class="form-group">
+                <select class="form-select" aria-label="Default select example" > 
+                    <option selected>Selecciona categoria</option>
+                    <option value="1">Chismesito</option>
+                    <option value="2">Deportes</option>
+                    <option value="3">Politica</option>
+                    <option value="4">Fake news</option>
+                    <option value="5"></option>
+                </select>
+                </div>
+                <div class="form-floating">
+                    <label for="floatingTextarea2">Cuente su chisme</label>
+                    <textarea class="form-control" placeholder="chisme aqui" id="floatingTextarea2" style="height: 100px" ></textarea>
+                </div>
+                <br>
+
+                <button type="submit" onclick="cifrar()" class="btn btn-primary mb-2">registrar</button>
+
+            </form>
         </div>
     </div>
+</main>
 
     <div class="container">
         <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
@@ -103,7 +123,7 @@
         <div class="col mb-3">
             <h5>Contactanos</h5>
             <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">+56a 9 3440 8920</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">+56 9 3440 8920</a></li>
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Tunotizierodeconfiansa@gmail.com</a></li>
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Twitter: @Caos.News</a></li>
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Instagram: @News.Caosuwu</a></li>
@@ -120,5 +140,6 @@
             integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
             integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>  
+            <script src="./validador.js"></script>
         </body>
     </html>
