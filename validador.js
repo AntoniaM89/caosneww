@@ -1,4 +1,52 @@
-// Capturando el DIV alerta y mensaje
+function validatePassword(input) {
+	
+	if (input.setCustomValidity) {
+		input.setCustomValidity('');
+		
+		if (input.validity && !input.validity.valid) {
+			input.setCustomValidity(input.title);
+		}
+	}
+	
+	if (passwordConfirm.setCustomValidity) {
+		if (password.value !== passwordConfirm.value) {
+				passwordConfirm.setCustomValidity(passwordConfirm.title);
+		} else {
+			passwordConfirm.setCustomValidity('');
+		}
+	} else {
+
+		if (passwordPattern.test(input.value)) {
+			$(input).addClass('valid');
+
+			if (password.value === passwordConfirm.value) {
+				$(passwordConfirm).addClass('valid');
+			} else {
+				$(passwordConfirm).removeClass('valid');
+			}
+		} else {
+			$(input).removeClass('valid');
+		}
+	}
+}
+function validateRequired(input) {
+	
+	if (input.setCustomValidity) {
+		input.setCustomValidity('');
+		
+		if (input.validity && !input.validity.valid) {
+			input.setCustomValidity(input.title);
+		}
+	}
+	
+	if (input.value.length > 0) {
+  	$(input).addClass('valid');
+  } else {
+		$(input).removeClass('valid');
+	}
+}
+
+
 var alerta = document.getElementById("alerta");
 var mensaje = document.getElementById("mensaje");
 
@@ -75,7 +123,6 @@ function checkRut(rut) {
     return false;
   } else {
     rut.setCustomValidity("");
-    
 
     alerta.classList.remove('d-none', 'alert-danger');
     alerta.classList.add('alert-success');
@@ -100,32 +147,18 @@ function clean (rut) {
     ? rut.replace(/^0+|[^0-9kK]+/g, '').toUpperCase()
     : ''
 }
-function format (rut) {
-    rut = clean(rut)
 
-    var result = rut.slice(-4, -1) + '-' + rut.substr(rut.length - 1)
-    for (var i = 4; i < rut.length; i += 3) {
-        result = rut.slice(-3 - i, -i) + '.' + result
-    }
+function validarEmail(elemento){
 
-    return result
-}
+  var texto = document.getElementById(elemento.id).value;
+  var regex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+  
+  if (!regex.test(texto)) {
+      document.getElementById("resultado").innerHTML = "Correo invalido";
+  } else {
+    document.getElementById("resultado").innerHTML = "";
+  }
 
-function clean (rut) {
-    return typeof rut === 'string'
-    ? rut.replace(/^0+|[^0-9kK]+/g, '').toUpperCase()
-    : ''
-}
-
-function validarEmail(email) {
-    let valor = document.getElementById('email').value;
-    emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-    if (emailRegex.test(valor)){
-        email.setCustomValidityalert("Correo Válido")
-    } else {
-        email.setCustomValidity("Correo Inválido")
-    return false;
-    }
 }
 
 function SHA1(msg) {
@@ -261,4 +294,3 @@ function SHA1(msg) {
 
   return temp.toLowerCase();
 }
-checkRut

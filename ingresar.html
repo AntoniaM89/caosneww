@@ -58,13 +58,13 @@
                     <label for="correo">Correo</label>
                     <input id="correo" name="correo"
                         class="form-control" type="email"
-                        placeholder="Correo electrónico">
+                        placeholder="Correo electrónico" requiered>
                 </div>
                 <div class="form-group">
                     <label for="palabraSecreta">Contraseña</label>
                     <input id="palabraSecreta" name="palabraSecreta"
                         class="form-control" type="password"
-                        placeholder="Contraseña">
+                        placeholder="Contraseña" oninput="validarEmail(this)" required >
                 </div>
                 <button type="submit" class="btn btn-primary mb-2 text-white">
                     <a href="./ingresar1.html" class="text-white"> Entrar </a>
@@ -127,5 +127,6 @@
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>  
+        <script src="./validador.js"></script>
     </body>
 </html>
