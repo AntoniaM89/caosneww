@@ -40,28 +40,33 @@ function kelvinToCentigrade(temp){
     return parseInt (temp - 273.15);
 }
 
-var fechaActual= new Date();
-var dia =fechaActual.getDate();
-var mes =fechaActual.getMonth();
-var año =fechaActual.getFullYear();
-var fechacomp = (dia+'/'+mes+'/'+año) ;
+const resulteco = document.querySelector('.resulteco');
 
-const urll= 'https://api.victorsanmartin.com/feriados/en.json'
-fetch(urll)
-    .then(data => {
-        return data.json();
-    })
-    .then(dataJSON=>{
-        showFec(dataJSON);
-    })
-   
-    function showFec (data){
 
-    }
- function comparacion(Date){
+const urll= 'https://economia.awesomeapi.com.br/json/last/USD-CLP'
+fetch(urll)    
+    .then (data =>{
+            return data.json(); 
+        })
+        .then (dataJSON => {
+            showeco(dataJSON);
+        })
+        .catch(error => {
+            console.log(error);
+        })
     
-    if(fecha.substring(8,10)+'/'+fecha.substring(5,7)+'/'+fecha.substring(0,4)==fechacomp)
-        return('<p style="color:crimson">'+fecha+'</p>')
-    else (fecha.substring(8,10)+'/'+fecha.substring(5,7)+'/'+fecha.substring(0,4)!=fechacomp)
-        return(fechaActual)
- }
+        function showeco(data){
+            const {USDCLP:{high,name}} = data;
+            const content = document.createElement('div');
+            content.innerHTML = `
+                <p>tipo de cambio ${name}: precio ${high}</p>
+            `;
+            resulteco.appendChild(content);
+        console.log(name);
+        console.log(high);
+ 
+        }
+
+function kelvinToCentigrade(temp){
+    return parseInt (temp - 273.15);
+}
