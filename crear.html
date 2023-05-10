@@ -66,14 +66,33 @@
                         onkeypress="return isNumber(event)" oninput="checkRut(this)"
                         required
                         />
+                        <span id="mensajer"></span>
                     <div class="form-group">
                         <label for="correo">Correo</label>
                         <input id="email" name="correo" class="form-control" type="email"
-                            placeholder="Correo electrónico"  oninput="validarEmail(this)" requiered />
-                            
+                            placeholder="Correo electrónico" oninput="validarCorreo()" requiered/>
+                            <span id="mensaje"></span>
+                            <div class="form-group">
+                                <label for="correo">Fecha</label>
+                                <div class= "mb-3">
+                                    <input type="date" class="form-control" id="fecha" name="fecha" placeholder="fecha">
+                                </div>
+                            </div>
+                            <label> seleccione su sexo</label>
+                            <br>
+                                <label>
+                                    <input type="checkbox" name="sexo" value="hombre" id="hombre" onclick="deseleccionarCheckbox('mujer')"> Hombre
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="sexo" value="mujer" id="mujer" onclick="deseleccionarCheckbox('hombre')"> Mujer
+                                </label>
+                                <br>
+                                <label for="phone">Teléfono:</label>
+                                <input type="number" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+                              <br>
                         <label for="password">clave</label>
-                        <input type="password" name="password" id="con" placeholder="Ingrese clave" 
-                            class="form-control" autocomplete="false"/>
+                        <input type="password" name="password" id="con" placeholder="Ingrese clave" class="form-control" autocomplete="false"/>
+    
                             <!--pattern="^((?=.*[0-9])(?=.*[a-zA-Z])).{6,12}$"
                             title="debe contener entre 6 a 12 caracteres, entre ellos numeros y signos."
                             oninput="validatePassword(this);" onchange="validatePassword(this);" 
@@ -162,10 +181,29 @@
     <script src="./validador.js"></script>
     <script>
     	function cifrar(){
-            var input_pass = document.getElementById("clave");
+            var input_pass = document.getElementById("con");
             input_pass.value = SHA1(input_pass.value);		
         }
     </script>
+    <script type="text/javascript">
+        function myFuction(){
+            var x = document.getElementById("inputContraseña");
+            if(x.type==="con"){
+                x.type="text";}
+            else{
+                x.type="con";
+            }
+        }
+    </script>
+    <script>
+		function deseleccionarCheckbox(checkboxId) {
+			var checkbox = document.getElementById(checkboxId);
+			if (checkbox.checked) {
+				checkbox.checked = false;
+			}
+		}
+	</script>
 </body>
+
 
 </html>

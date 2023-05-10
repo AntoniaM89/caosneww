@@ -1,34 +1,35 @@
-function validatePassword(input) {
+//function validatePassword(input) {
 	
-	if (input.setCustomValidity) {
-		input.setCustomValidity('');
+//	if (input.setCustomValidity) {
+//		input.setCustomValidity('');
 		
-		if (input.validity && !input.validity.valid) {
-			input.setCustomValidity(input.title);
-		}
-	}
+//		if (input.validity && !input.validity.valid) {
+//			input.setCustomValidity(input.title);
+//		}
+//	}
 	
-	if (passwordConfirm.setCustomValidity) {
-		if (password.value !== passwordConfirm.value) {
-				passwordConfirm.setCustomValidity(passwordConfirm.title);
-		} else {
-			passwordConfirm.setCustomValidity('');
-		}
-	} else {
+//	if (passwordConfirm.setCustomValidity) {
+//		if (password.value !== passwordConfirm.value) {
+//				passwordConfirm.setCustomValidity(passwordConfirm.title);
+//		} else {
+//			passwordConfirm.setCustomValidity('');
+//		}
+//	} else {
 
-		if (passwordPattern.test(input.value)) {
-			$(input).addClass('valid');
+//		if (passwordPattern.test(input.value)) {
+//			$(input).addClass('valid');
 
-			if (password.value === passwordConfirm.value) {
-				$(passwordConfirm).addClass('valid');
-			} else {
-				$(passwordConfirm).removeClass('valid');
-			}
-		} else {
-			$(input).removeClass('valid');
-		}
-	}
-}
+//			if (password.value === passwordConfirm.value) {
+//				$(passwordConfirm).addClass('valid');
+//			} else {
+	//			$(passwordConfirm).removeClass('valid');
+//			}
+//		} else {
+//			$(input).removeClass('valid');
+//		}
+//	}
+//}
+
 function validateRequired(input) {
 	
 	if (input.setCustomValidity) {
@@ -48,7 +49,7 @@ function validateRequired(input) {
 
 
 var alerta = document.getElementById("alerta");
-var mensaje = document.getElementById("mensaje");
+var mensajer = document.getElementById("mensajer");
 
 // Permitir sólo números en el imput
 function isNumber(evt) {
@@ -61,9 +62,9 @@ function isNumber(evt) {
 function checkRut(rut) {
 
   if (rut.value.length <= 1) {
-    alerta.classList.remove('alert-success', 'alert-danger');
-    alerta.classList.add('alert-info');
-    mensaje.innerHTML = 'Ingrese un RUT en el siguiente campo de texto para validar si es correcto o no';
+
+  
+    mensajer.innerHTML = 'Ingrese un RUT en el siguiente campo de texto para validar si es correcto o no';
   }
 
   // Obtiene el valor ingresado quitando puntos y guión.
@@ -79,9 +80,9 @@ function checkRut(rut) {
   // Si no cumple con el mínimo ej. (n.nnn.nnn)
   if (cuerpo.length < 7) {
     rut.setCustomValidity("RUT Incompleto");
-    alerta.classList.remove('alert-success', 'alert-danger');
-    alerta.classList.add('alert-info');
-    mensaje.innerHTML = 'Ingresó un RUT muy corto, el RUT debe ser mayor a 7 Dígitos. Ej: x.xxx.xxx-x';
+
+
+    mensajer.innerHTML = 'Ingresó un RUT muy corto, el RUT debe ser mayor a 7 Dígitos. Ej: x.xxx.xxx-x';
     return false;
   }
 
@@ -116,17 +117,14 @@ function checkRut(rut) {
   if (dvEsperado != dv) {
     rut.setCustomValidity("RUT Inválido");
 
-    alerta.classList.remove('alert-info', 'alert-success');
-    alerta.classList.add('alert-danger');
-    mensaje.innerHTML = 'El RUT ingresado: ' + rut.value + ' Es <strong>INCORRECTO</strong>.';
+    mensajer.innerHTML = 'El RUT ingresado: ' + rut.value + ' Es <strong>INCORRECTO</strong>.';
 
     return false;
   } else {
     rut.setCustomValidity("");
 
-    alerta.classList.remove('d-none', 'alert-danger');
-    alerta.classList.add('alert-success');
-    mensaje.innerHTML = 'El RUT ingresado: ' + rut.value + ' Es <strong>CORRECTO</strong>.';
+
+    mensajer.innerHTML = 'El RUT ingresado: ' + rut.value + ' Es <strong>CORRECTO</strong>.';
     return true;
   }
 }
@@ -147,18 +145,15 @@ function clean (rut) {
     ? rut.replace(/^0+|[^0-9kK]+/g, '').toUpperCase()
     : ''
 }
+function validarCorreo() {
+  const correo = document.getElementById("correo");
+  const regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-function validarEmail(elemento){
-
-  var texto = document.getElementById(elemento.id).value;
-  var regex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-  
-  if (!regex.test(texto)) {
-      document.getElementById("resultado").innerHTML = "Correo invalido";
+  if (regexCorreo.test(correo)) {
+    document.getElementById("mensaje").innerHTML = "El correo electrónico es válido";
   } else {
-    document.getElementById("resultado").innerHTML = "";
+    document.getElementById("mensaje").innerHTML = "El correo electrónico no es válido";
   }
-
 }
 
 function SHA1(msg) {
@@ -294,3 +289,4 @@ function SHA1(msg) {
 
   return temp.toLowerCase();
 }
+

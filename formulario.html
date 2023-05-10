@@ -51,7 +51,7 @@
             <div id="login" class="col-lg-4 offset-lg-4 col-md-6 offset-md-3col-12">
             
             <h2 class="text-center">Cuentenos su chisme o sus penurias</h2>
-            <form action="./principal.html" ></form>
+            <form action="./principal.html" >
                 <div class="form-group">
                 <label for="correo">Nombre</label>
                 <input id="correo" name="nombre"
@@ -59,12 +59,11 @@
                         placeholder="Nombre" requiered
                         >
                         <br>
-                    <label for="correo">Correo</label>
-                    <input id="correo" name="correo"
-                        class="form-control" type="email"
-                        placeholder="Correo electrónico"
-                        oninput="validarEmail(this)" required
-                        >
+                        <label for="correo">Correo</label>
+                        <input id="email" name="correo" class="form-control" type="email"
+                            placeholder="Correo electrónico" oninput="validarCorreo()" requiered/>
+                            <span id="mensaje"></span>
+                            <div class="form-group">
                     <br>
                 <select class="form-select" aria-label="Default select example" > 
                     <option selected>Selecciona categoria</option>
@@ -72,14 +71,14 @@
                     <option value="2">Deportes</option>
                     <option value="3">Politica</option>
                     <option value="4">Fake news</option>
-                    <option value="5"></option>
+                    
                     
                 </select>
                     <br>
                     <label for="floatingTextarea2">Cuente su chisme</label>
                     <textarea class="form-control" placeholder="chisme aqui" id="floatingTextarea2" style="height: 100px" ></textarea>
-                <br></form> 
-                <button type="submit"  class="btn btn-primary mb-2">enviar</button>
+                <br>
+                <button type="submit"  class="btn btn-primary mb-2">enviar</button></form> 
                 </div>
             </div>
         </div>
