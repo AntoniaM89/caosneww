@@ -29,6 +29,17 @@
 //		}
 //	}
 //}
+var mensajeuwu = document.getElementById("mensajeuwu");
+
+function validarCampos(){
+  var correo=document.getElementeById("email").value;
+  var contraseña=document.getElementById("con").value;
+  if (correo==""|| contraseña==""){
+    mensajeuwu.innerHTML="por favor, rellene todos los datos del campo";}
+    else{
+      mensajeuwuinnerHTML="Registro Exitoso";}
+ }
+
 
 function validateRequired(input) {
 	
@@ -145,17 +156,11 @@ function clean (rut) {
     ? rut.replace(/^0+|[^0-9kK]+/g, '').toUpperCase()
     : ''
 }
-function validarCorreo() {
-  const correo = document.getElementById("correo");
-  const regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  if (regexCorreo.test(correo)) {
-    document.getElementById("mensaje").innerHTML = "El correo electrónico es válido";
-  } else {
-    document.getElementById("mensaje").innerHTML = "El correo electrónico no es válido";
-  }
+function validarCorreo(valor) 
+{
+    var regex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    return regex.test(email) ? true : false;
 }
-
 function SHA1(msg) {
   function rotate_left(n,s) {
     var t4 = ( n<<s ) | (n>>>(32-s));

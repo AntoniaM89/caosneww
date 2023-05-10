@@ -53,7 +53,7 @@
             <h2 class="text-center">Bienvenido nuevo usuario</h2>
 
 
-            <form method="get" >
+            <form action="./principal.html" >
                 <label for="correo">Correo</label>
                         <input id="email" name="correo" class="form-control" type="email"
                             placeholder="Correo electrónico" oninput="validarCorreo()" requiered/>
@@ -61,16 +61,22 @@
                             <div class="form-group">
                 <div class="form-group">
                     <label for="password">clave</label>
-                    <input type="password" name="password" id="con" placeholder="Ingrese clave" class="form-control" autocomplete="false"/>
+                    <input type="password" name="password" id="con" placeholder="Ingrese clave" class="form-control" autocomplete="false" requiered/>
                 </div>
-                
-                    <button type="submit" onclick="cifrar()" class="btn btn-primary mb-2">iniciar sesion</button>
-                </button>
-                <br>
-                <a href="#">Contraseña olvidada</a>
+                <select class="form-select" aria-label="Default select example" > 
+                    <option selected>Selecciona tipo de usuario</option>
+                    <option value="1">Usuario</option>
+                    <option value="2">Admin</option>
+                    <option value="3">Periodista</option>
+                    
+                </select>
                 <br>
                 <a href="./crear.html">Crear cuenta</a>
+                <br>
+                <button type="submit" onclick="validarCampos()"  class="btn btn-primary mb-2">iniciar sesion</button>
+                
             </form>
+            <p id="mensajeuwu"></p>
         </div>
     </div>
 </main>

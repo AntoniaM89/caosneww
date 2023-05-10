@@ -1,7 +1,7 @@
 const result = document.querySelector('.result');
 
 
-const url= 'https://api.openweathermap.org/data/2.5/weather?q=santiago,chile&appid=49dba6fec41978853c684cb093f3b2b8'
+const url= 'https://api.openweathermap.org/data/2.5/weather?q=Santiago,chile&appid=49dba6fec41978853c684cb093f3b2b8'
 fetch(url)    
     .then (data =>{
             return data.json(); 
@@ -40,3 +40,28 @@ function kelvinToCentigrade(temp){
     return parseInt (temp - 273.15);
 }
 
+var fechaActual= new Date();
+var dia =fechaActual.getDate();
+var mes =fechaActual.getMonth();
+var año =fechaActual.getFullYear();
+var fechacomp = (dia+'/'+mes+'/'+año) ;
+
+const urll= 'https://api.victorsanmartin.com/feriados/en.json'
+fetch(urll)
+    .then(data => {
+        return data.json();
+    })
+    .then(dataJSON=>{
+        showFec(dataJSON);
+    })
+   
+    function showFec (data){
+
+    }
+ function comparacion(Date){
+    
+    if(fecha.substring(8,10)+'/'+fecha.substring(5,7)+'/'+fecha.substring(0,4)==fechacomp)
+        return('<p style="color:crimson">'+fecha+'</p>')
+    else (fecha.substring(8,10)+'/'+fecha.substring(5,7)+'/'+fecha.substring(0,4)!=fechacomp)
+        return(fechaActual)
+ }
