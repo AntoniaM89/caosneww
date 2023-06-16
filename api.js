@@ -67,6 +67,3 @@ fetch(urll)
  
         }
 
-function kelvinToCentigrade(temp){
-    return parseInt (temp - 273.15);
-}
